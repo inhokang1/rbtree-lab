@@ -58,7 +58,7 @@ void test_erase_root(const key_t key) {
   rbtree *t = new_rbtree();
   node_t *p = rbtree_insert(t, key);
   assert(p != NULL);
-  assert(t->root == p);
+  assert(t->root == p);          
   assert(p->key == key);
 
   rbtree_erase(t, p);
@@ -132,7 +132,7 @@ void test_to_array(rbtree *t, const key_t *arr, const size_t n) {
 
   insert_arr(t, arr, n);
   qsort((void *)arr, n, sizeof(key_t), comp);
-
+  printf("insert_complete!\n");
   key_t *res = calloc(n, sizeof(key_t));
   rbtree_to_array(t, res, n);
   for (int i = 0; i < n; i++) {
